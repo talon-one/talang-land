@@ -6,3 +6,6 @@
 
 # output binary
 server
+
+# static folder
+static/
