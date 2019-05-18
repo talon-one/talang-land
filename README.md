@@ -1,2 +1,2 @@
-# talang-land
-Talang Playground
+# Talang Land
+A Playground for Talang

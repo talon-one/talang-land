@@ -1,0 +1,13 @@
+language: go
+go:
+  - "1.10.x"
+
+go_import_path: github.com/talon-one/talang
+
+script:
+  - go get -t -v ./...
+  - make generate
+  - go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
