@@ -8,12 +8,12 @@
       <p>
         <v-btn
           color="deep-purple"
-          class="white--text"
-          href="https://github.com/talon-one/talang"
+          href="https://github.com/talon-one/talang-land/"
+          title="https://github.com/talon-one/talang-land/"
           target="_blank"
         >
-          Talon.One
-          <v-icon right dark>open_in_new</v-icon>
+          This website in GitHub
+          <v-icon right>open_in_new</v-icon>
         </v-btn>
       </p>
     </v-flex>
