@@ -55,11 +55,7 @@ export default {
   methods: {
     run() {
       axios
-        .get(
-          `http://localhost:3000/api/parse?talang=${encodeURIComponent(
-            this.code
-          )}`
-        )
+        .get(`/api/parse?talang=${encodeURIComponent(this.code)}`)
         .then(response => {
           this.result = response.data
           this.error = null
