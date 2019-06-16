@@ -56,7 +56,7 @@ export default {
     '@nuxtjs/proxy'
   ],
   proxy: {
-    '/api': { target: process.env.API_SERVER || 'http://localhost:9876' }
+    '/api': { target: 'http://localhost:9876' }
   },
 
   /*
