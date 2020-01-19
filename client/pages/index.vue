@@ -1,5 +1,5 @@
 <template>
-  <no-ssr placeholder="Loading...">
+  <client-only placeholder="Loading...">
     <v-layout column>
       <v-container>
         <v-tooltip top>
@@ -21,7 +21,7 @@
         </v-flex>
       </v-container>
     </v-layout>
-  </no-ssr>
+  </client-only>
 </template>
 
 <script>
