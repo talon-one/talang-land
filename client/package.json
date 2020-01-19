@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "The ultimate Talang Playground",
   "author": "Talon.One",
+  "license": "MIT",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
