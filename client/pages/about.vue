@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-flex text-xs-center>
+    <v-flex text-center>
       <p>
         Talang Land is given to you by
         <a href="https://talon.one/" title="Talon.One GmbH">Talon.One</a>.
@@ -13,7 +13,7 @@
           target="_blank"
         >
           This website in GitHub
-          <v-icon right>open_in_new</v-icon>
+          <v-icon right>mdi-open-in-new</v-icon>
         </v-btn>
       </p>
     </v-flex>
