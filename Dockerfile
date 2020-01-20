@@ -1,4 +1,4 @@
-FROM node:10.15.3-alpine AS client-builder
+FROM node:10.18.1-alpine AS client-builder
 
 RUN apk add yarn
 
