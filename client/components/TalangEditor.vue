@@ -22,6 +22,10 @@ export default {
       type: String,
       default: '(+ 1 2 3 4)',
     },
+    autofocus: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function() {
     return {
@@ -41,6 +45,10 @@ export default {
       keybindings: [window.monaco.KeyMod.CtrlCmd | window.monaco.KeyCode.Enter],
       run: () => this.$emit('run'),
     })
+
+    if (this.$props.autofocus) {
+      this.$refs.editor.focus()
+    }
   },
 }
 </script>
