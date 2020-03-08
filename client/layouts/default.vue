@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar class="fix-high" absolute app hide-on-scroll>
+    <v-app-bar absolute app hide-on-scroll>
       <nuxt-link class="title-link-anchor" to="/" title="Home">
         <img src="/favicon.ico" alt="Talang" width="36px" height="36px" />
         <v-toolbar-title class="title-link" v-text="title" />
@@ -42,10 +42,6 @@ export default {
 </script>
 
 <style>
-.fix-high {
-  /* this here comes to keep toolbar higher than codemirror inputs */
-  z-index: 5 !important;
-}
 .pad-footer {
   padding: 0.5rem 2rem;
 }
