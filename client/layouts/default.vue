@@ -22,7 +22,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer class="pad-footer">
+    <v-footer app class="pad-footer">
       <span>Talon.One | Talang Land</span>
       <v-spacer />
       <span>&copy; {{ year }}</span>
