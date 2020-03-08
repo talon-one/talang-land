@@ -15,17 +15,13 @@
           </template>
           <span class="tooltip">{{ runShourtcutTooltip() }}</span>
         </v-tooltip>
-        <v-flex>
-          <TalangEditor v-model="code" @run="run" />
-        </v-flex>
+        <TalangEditor v-model="code" autofocus @run="run" />
       </v-container>
       <v-container class="px-6 py-6">
-        <v-flex>
-          <v-alert v-if="!!error" type="error" value="error">
-            {{ error }}
-          </v-alert>
-          <ResultPane v-if="!error" :value="String(result)" />
-        </v-flex>
+        <v-alert v-if="error !== null" type="error">
+          {{ error }}
+        </v-alert>
+        <ResultPane v-if="error === null" :value="String(result)" />
       </v-container>
     </v-layout>
   </client-only>
@@ -77,10 +73,6 @@ export default {
 </script>
 
 <style>
-.result-pane {
-  background: #151515;
-  color: #e0e0e0;
-}
 .tooltip {
   font-family: 'Courier New', Courier, monospace;
 }
