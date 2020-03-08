@@ -1,5 +1,7 @@
 <template>
-  <codemirror :value="value" :options="cmOptions" />
+  <code class="result-pane">
+    {{ value }}
+  </code>
 </template>
 
 <script>
@@ -10,21 +12,12 @@ export default {
       default: null,
     },
   },
-  data: function() {
-    return {
-      cmOptions: {
-        tabSize: 2,
-        mode: 'text/javascript',
-        theme: 'solarized light',
-        readOnly: true,
-      },
-    }
-  },
 }
 </script>
 
 <style>
-.cm-s-solarized.CodeMirror {
-  box-shadow: none;
+.result-pane {
+  width: 100%;
+  height: 330px;
 }
 </style>
