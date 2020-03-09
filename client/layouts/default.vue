@@ -1,31 +1,31 @@
 <template>
-  <v-app dark>
-    <v-toolbar class="fix-high" fixed app>
-      <nuxt-link to="/" title="Home">
+  <v-app>
+    <v-app-bar class="fix-high" absolute app hide-on-scroll>
+      <nuxt-link class="title-link-anchor" to="/" title="Home">
         <img src="/favicon.ico" alt="Talang" width="36px" height="36px" />
+        <v-toolbar-title class="title-link" v-text="title" />
       </nuxt-link>
-      <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn
         href="https://github.com/talon-one/talang/"
         title="https://github.com/talon-one/talang/"
         target="_blank"
-        flat
+        text
       >
         GitHub
-        <v-icon right>open_in_new</v-icon>
+        <v-icon right>mdi-open-in-new</v-icon>
       </v-btn>
-      <v-btn to="/about" title="About" nuxt flat>About</v-btn>
-    </v-toolbar>
+      <v-btn to="/about" title="About" nuxt text>About</v-btn>
+    </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container class="px-6 py-6">
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer class="pad-footer" app>
+    <v-footer app class="pad-footer">
       <span>Talon.One | Talang Land</span>
       <v-spacer />
-      <span>&copy; 2019</span>
+      <span>&copy; {{ year }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       title: 'Talang Land',
+      year: new Date().getFullYear(),
     }
   },
 }
@@ -46,6 +47,20 @@ export default {
   z-index: 5 !important;
 }
 .pad-footer {
-  padding: 0 2rem;
+  padding: 0.5rem 2rem;
+}
+.title-link-anchor {
+  display: flex;
+  text-decoration: none;
+}
+.title-link {
+  margin-left: 1rem;
+  color: #fff !important;
+  font-weight: bold;
+}
+@media only screen and (max-width: 410px) {
+  .title-link {
+    display: none;
+  }
 }
 </style>

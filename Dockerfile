@@ -9,7 +9,7 @@ RUN yarn
 COPY ./client ./
 RUN yarn generate
 
-FROM golang:1.12.5-alpine AS server-builder
+FROM golang:1.14-alpine AS server-builder
 
 COPY ./server /go/src/github.com/talon-one/talang-land
 

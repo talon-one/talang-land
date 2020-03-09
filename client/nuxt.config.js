@@ -1,4 +1,4 @@
-import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import colors from 'vuetify/es5/util/colors'
 import pkg from './package'
 
 export default {
@@ -15,12 +15,7 @@ export default {
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
-      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
   },
 
@@ -33,7 +28,6 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/style/app.styl',
     'codemirror/lib/codemirror.css',
     'codemirror/theme/base16-dark.css',
     'codemirror/theme/solarized.css',
@@ -43,10 +37,14 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/vuetify',
     { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false },
   ],
-
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+    '@nuxtjs/vuetify',
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -60,16 +58,30 @@ export default {
   },
 
   /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
+  vuetify: {
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
+
+  /*
    ** Build configuration
    */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl'],
-      },
-    },
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

@@ -1,10 +1,17 @@
 <template>
-  <no-ssr placeholder="Loading...">
+  <client-only placeholder="Loading...">
     <v-layout column>
-      <v-container>
+      <v-container class="px-6 py-6">
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn color="deep-purple" @click="run" v-on="on">Run</v-btn>
+            <v-btn
+              class="run-button"
+              color="deep-purple"
+              @click="run"
+              v-on="on"
+            >
+              Run
+            </v-btn>
           </template>
           <span class="tooltip">{{ runShourtcutTooltip() }}</span>
         </v-tooltip>
@@ -12,7 +19,7 @@
           <TalangEditor v-model="code" @run="run" />
         </v-flex>
       </v-container>
-      <v-container>
+      <v-container class="px-6 py-6">
         <v-flex>
           <v-alert v-if="!!error" type="error" value="error">
             {{ error }}
@@ -21,7 +28,7 @@
         </v-flex>
       </v-container>
     </v-layout>
-  </no-ssr>
+  </client-only>
 </template>
 
 <script>
@@ -76,5 +83,8 @@ export default {
 }
 .tooltip {
   font-family: 'Courier New', Courier, monospace;
+}
+.run-button {
+  margin: 0.5rem;
 }
 </style>
