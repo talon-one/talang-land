@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 import pkg from './package'
+import MonacoEditorPlugin from 'monaco-editor-webpack-plugin'
 
 export default {
   mode: 'universal',
@@ -28,16 +29,12 @@ export default {
    ** Global CSS
    */
   css: [
-    'codemirror/lib/codemirror.css',
-    'codemirror/theme/base16-dark.css',
-    'codemirror/theme/solarized.css',
   ],
 
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -82,6 +79,11 @@ export default {
    ** Build configuration
    */
   build: {
+    plugins: [
+      new MonacoEditorPlugin({
+        languages: ['clojure']
+      })
+    ],
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
